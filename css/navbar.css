@@ -1,0 +1,35 @@
+:root {
+    --mainColor: #FECC18;
+    --secondaryColor: #3D3E3E;
+    --white: #FAFAFA;
+    --black: #252525;
+}
+
+.navbar {
+    flex-wrap: nowrap !important;
+
+    .container {
+        max-width: 2000px;
+    }
+
+    .navbar-collapse {
+        flex-basis: 0% !important;
+    }
+
+    .nav-item {
+        margin-left: 25px;
+        width: 100px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .navbar-nav {
+        gap: 10px;
+    }
+
+    .nav-item {
+        margin-left: 0px !important;
+        width: fit-content !important;
+    }
+}
+

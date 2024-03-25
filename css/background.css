@@ -1,0 +1,20 @@
+:root {
+  --mainColor: #FECC18;
+  --secondaryColor: #3D3E3E;
+  --white: #FAFAFA;
+  --black: #252525;
+}
+
+#backgroundVideo {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: #252525;
+    filter: blur(10px) drop-shadow(0px 1px 0px #252525);
+  }
