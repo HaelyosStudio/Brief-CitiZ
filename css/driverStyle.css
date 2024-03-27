@@ -1,7 +1,6 @@
 @import url(./navbar.css);
 @import url(./background.css);
 @import url(./registration.css);
-@import url(./signIn.css);
 
 * {
     margin: 0;

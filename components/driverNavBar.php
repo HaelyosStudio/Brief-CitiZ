@@ -12,16 +12,16 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link button" href="<?php echo URL_SIGNIN ?>">Connect</a>
+                            <a class="nav-link button" href="#">Disconnect</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="<?php echo URL_HOMEPAGE ?>">Home</a>
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true" href="#">Profile</a>
+                            <a class="nav-link" href="#">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Reservations</a>
+                            <a class="nav-link" href="#">Reservations</a>
                         </li>
                     </ul>
                 </div>

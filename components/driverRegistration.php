@@ -1,5 +1,5 @@
 <section class="registrationSection">
-        <form action="/public/treament" method="POST">
+        <form action="<?php echo URL_TREATMENT_REGISTER ?>" method="POST">
             <h1>Driver registration</h1>
 
             <div class="formInputs">
