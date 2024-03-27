@@ -8,8 +8,9 @@
 .navbar {
     flex-wrap: nowrap !important;
 
-    .container {
+    .container, .container-fluid {
         max-width: 2000px;
+        --bs-gutter-x: 1rem;
     }
 
     .navbar-collapse {
@@ -19,7 +20,20 @@
     .nav-item {
         margin-left: 25px;
         width: 100px;
+        text-align: left;
     }
+
+    .button {
+        border: 1px solid var(--mainColor);
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .button:hover {
+        color: var(--black);
+        background-color: var(--mainColor);
+    }
+    
 }
 
 @media screen and (min-width: 992px) {
