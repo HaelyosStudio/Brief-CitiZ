@@ -1,6 +1,7 @@
 @import url(./navbar.css);
 @import url(./background.css);
 @import url(./registration.css);
+@import url(./driverProfile.css);
 
 * {
     margin: 0;

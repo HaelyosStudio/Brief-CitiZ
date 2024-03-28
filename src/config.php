@@ -14,3 +14,6 @@ define("URL_TREATMENT_SIGNIN", "/public/treatment_signIn");
 define("URL_SIGNIN", "/public/signIn");
 define("URL_SIGNIN_SUCCESS", "/public/signIn/success");
 define("URL_SIGNIN_ERROR", "/public/signIn/error");
+define("URL_DRIVER_PROFILE", "/public/driver/profile");
+define("URL_DRIVER_PROFILE_PASSWORD", "/public/driver/profile/password");
+define("URL_UPDATE_PROFILE", "/public/driver/profile/update");

@@ -51,7 +51,34 @@ class SignController {
 
         $this->driverRepository->createDriver($firstName, $lastName, $driversLicense, $age, $email, $hashedPassword);
 
-        header('Location: /public/register/success');
+        $_SESSION['authenticated_user'] = $email;
+
+        header('Location: ' . URL_REGISTER_SUCCESS);
+        exit;
+    }
+    
+    public function signIn() {
+        $email = $_POST['emailAddress'];
+        $password = $_POST['password'];
+
+        $this->driverRepository = new DriverRepository();
+    
+        $driver = $this->driverRepository->findByEmail($email);
+    
+        if (!$driver) {
+            $this->handleSignInError('Email not found');
+        }
+
+        $dbPassword = $driver->getPassword();
+    
+        if (!password_verify($password, $dbPassword)) {
+            $_SESSION['authenticated_user'] = null;
+            $this->handleSignInError('Incorrect password');
+        }
+    
+        $_SESSION['authenticated_user'] = $driver->getEmail();
+    
+        header('Location: ' . URL_SIGNIN_SUCCESS);
         exit;
     }
 
@@ -62,41 +89,35 @@ class SignController {
         <p>You registered successfully. You will be redirected in a few seconds.</p>
         </div>');
     }
-    
-    public function signIn() {
-        $email = $_POST['emailAddress'];
-        $password = $_POST['password'];
-    
-        $this->driverRepository = new DriverRepository();
-    
-        $driverEmail = $this->driverRepository->findByEmail($email);
-    
-        if (!$driverEmail) {
-            $this->handleSignInError('Email not found');
-        }
-    
-        if (!password_verify($password, $this->driverRepository->getPassword($password))) {
-            $this->handleSignInError('Incorrect password');
-        }
-    
-        $_SESSION['driver_id'] = $this->driverRepository->getId($email);
-    
-        header('Location: ' . URL_SIGNIN_SUCCESS);
-        exit;
+
+    public function signInSuccess() {
+        header('Refresh: 5; URL=/public/driver');
+
+        echo ('<div style="text-align: center; margin-top: 20%;">
+        <p>You logged in successfully. You will be redirected in a few seconds.</p>
+        </div>');
     }
     
 
     public function handleRegisterError($message) {
         $_SESSION['error'] = $message;
 
-        header('Refresh: 5; URL_REGISTER_ERROR');
+        header('Refresh: 5; URL=/public/home');
+
+        echo ('<div style="text-align: center; margin-top: 20%;">
+        <p>' . $_SESSION['error'] . '. You will be redirected in a few seconds.</p>
+        </div>');
         exit;
     }
 
     public function handleSignInError($message) {
         $_SESSION['error'] = $message;
 
-        header('Location: ' . URL_SIGNIN_ERROR);
+        header('Refresh: 5; URL=/public/signIn');
+
+        echo ('<div style="text-align: center; margin-top: 20%;">
+        <p>' . $_SESSION['error'] . '. You will be redirected in a few seconds.</p>
+        </div>');
         exit;
     }
 }

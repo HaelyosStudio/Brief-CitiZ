@@ -15,10 +15,23 @@ switch ($route) {
         $home->index();
         break;
     case URL_DRIVER:
+        $driver->isLogged();
         $driver->index();
         break;
     case URL_SIGNIN:
         $sign->index();
+        break;
+    case URL_DRIVER . '/logout':
+        $driver->logout();
+        break;
+    case URL_DRIVER_PROFILE:
+        $driver->profile();
+        break;
+    case URL_UPDATE_PROFILE:
+        $driver->updateProfile();
+        break;
+    case URL_DRIVER_PROFILE_PASSWORD:
+        $driver->changePassword();
         break;
     case URL_TREATMENT_REGISTER:
         $sign->signUp();
@@ -26,11 +39,12 @@ switch ($route) {
     case URL_REGISTER_SUCCESS:
         $sign->registerSuccess();
         break;
-    case URL_REGISTER_ERROR:
-        $home->index();
-        break;
     case URL_TREATMENT_SIGNIN:
         $sign->signIn();
+        break;
+    case URL_SIGNIN_SUCCESS:
+        $sign->signInSuccess();
+        break;
     default:
         echo ('<p>Erreur 404 : Page introuvable</p>');
         break;
