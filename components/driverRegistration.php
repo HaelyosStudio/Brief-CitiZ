@@ -3,13 +3,13 @@
             <h1>Driver registration</h1>
 
             <div class="formInputs">
-                <label for="lastName">Last Name</label><br>
-                <input type="text" id="lastName" name="lastName" minlength="3" maxlength="50" required>
+                <label for="firstName">First Name</label><br>
+                <input type="text" id="firstName" name="firstName" minlength="3" maxlength="50">
             </div>
 
             <div class="formInputs">
-                <label for="firstName">First Name</label><br>
-                <input type="text" id="firstName" name="firstName" minlength="3" maxlength="50">
+                <label for="lastName">Last Name</label><br>
+                <input type="text" id="lastName" name="lastName" minlength="3" maxlength="50" required>
             </div>
 
             <div class="formInputs">
