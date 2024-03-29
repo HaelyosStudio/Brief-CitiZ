@@ -2,6 +2,8 @@
 @import url(./background.css);
 @import url(./registration.css);
 @import url(./driverProfile.css);
+@import url(./reservationForm.css);
+@import url(./reservationDisplay.css);
 
 * {
     margin: 0;

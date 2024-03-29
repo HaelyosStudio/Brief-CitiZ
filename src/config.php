@@ -17,3 +17,6 @@ define("URL_SIGNIN_ERROR", "/public/signIn/error");
 define("URL_DRIVER_PROFILE", "/public/driver/profile");
 define("URL_DRIVER_PROFILE_PASSWORD", "/public/driver/profile/password");
 define("URL_UPDATE_PROFILE", "/public/driver/profile/update");
+define("URL_PROFILE_DELETE", "/public/driver/profile/delete");
+define("URL_DRIVER_RESERVATION", "/public/driver/reservation");
+define("URL_MAKE_RESERVATION", "/public/driver/reservation/publish");

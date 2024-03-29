@@ -1,0 +1,55 @@
+:root {
+    --mainColor: #FECC18;
+    --secondaryColor: #3D3E3E;
+    --white: #FAFAFA;
+    --black: #252525;
+    --borderColor: #dbdbdb;
+    --borderMainColor: #edb900;
+  }
+
+.reservations {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.reservationCard {
+    border: 1px solid var(--borderColor);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 600px;
+    text-align: center;
+}
+
+.reservationDates,
+.carInfo {
+    flex-basis: calc(50% - 10px);
+}
+
+.carImg > img {
+    width: 200px;
+    height: 150px;
+}
+
+.reservationDates h3 {
+    margin-top: 0;
+    color: var(--black);
+}
+
+.reservationCard p {
+    margin: 5px 0;
+}
+
+.reservationCard strong {
+    color: var(--black);
+}
