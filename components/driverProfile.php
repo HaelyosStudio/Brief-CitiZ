@@ -1,6 +1,6 @@
 <section class="modifyProfileSection">
     <div class="profileContainer">
-        <h1>Profile</h1>
+        <h1 id="h1Title">Profile</h1>
         <?php if (isset($errors) && count($errors) > 0): ?>
             <div class="errors">
                 <?php foreach ($errors as $error): ?>
@@ -48,5 +48,13 @@
             <button type="submit">Update Password</button>
             <div class="changeButton" id="changeInfosButton">Go back</div>
         </form>
+        <div class="deleteConfirmBox hidden" id="deleteConfirmBox">
+            <h2>Are you sure you want to delete your account?</h2>
+            <div class="confirmButtonsBox">
+                <a class="confirmButton" href=<?php echo URL_PROFILE_DELETE ?>>Confirm</a>
+                <button class="cancelButton" id="cancelButton">Cancel</button>
+            </div>
+        </div>
+        <button class="deleteButton" id="deleteButton">Delete Account</button>
     </div>
 </section>

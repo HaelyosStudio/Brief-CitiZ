@@ -83,7 +83,7 @@ class SignController {
     }
 
     public function registerSuccess() {
-        header('Refresh: 5; URL=/public/driver');
+        header('Refresh: 3; URL=/public/driver');
 
         echo ('<div style="text-align: center; margin-top: 20%;">
         <p>You registered successfully. You will be redirected in a few seconds.</p>
@@ -91,7 +91,7 @@ class SignController {
     }
 
     public function signInSuccess() {
-        header('Refresh: 5; URL=/public/driver');
+        header('Refresh: 3; URL=/public/driver');
 
         echo ('<div style="text-align: center; margin-top: 20%;">
         <p>You logged in successfully. You will be redirected in a few seconds.</p>
@@ -102,7 +102,7 @@ class SignController {
     public function handleRegisterError($message) {
         $_SESSION['error'] = $message;
 
-        header('Refresh: 5; URL=/public/home');
+        header('Refresh: 3; URL=/public/home');
 
         echo ('<div style="text-align: center; margin-top: 20%;">
         <p>' . $_SESSION['error'] . '. You will be redirected in a few seconds.</p>
@@ -113,7 +113,7 @@ class SignController {
     public function handleSignInError($message) {
         $_SESSION['error'] = $message;
 
-        header('Refresh: 5; URL=/public/signIn');
+        header('Refresh: 3; URL=/public/signIn');
 
         echo ('<div style="text-align: center; margin-top: 20%;">
         <p>' . $_SESSION['error'] . '. You will be redirected in a few seconds.</p>

@@ -21,6 +21,12 @@ switch ($route) {
     case URL_SIGNIN:
         $sign->index();
         break;
+    case URL_DRIVER_RESERVATION:
+        $driver->reservation();
+        break;
+    case URL_MAKE_RESERVATION:
+        $driver->makeReservation();
+        break;
     case URL_DRIVER . '/logout':
         $driver->logout();
         break;
@@ -32,6 +38,9 @@ switch ($route) {
         break;
     case URL_DRIVER_PROFILE_PASSWORD:
         $driver->changePassword();
+        break;
+    case URL_PROFILE_DELETE:
+        $driver->deleteDriver();
         break;
     case URL_TREATMENT_REGISTER:
         $sign->signUp();

@@ -25,6 +25,39 @@ class DriverRepository extends Database {
         return $req->fetchAll(PDO::FETCH_CLASS, Driver::class);
     }
 
+    public function findAllCars() {
+        $req = $this->getDb()->prepare('SELECT * FROM car');
+
+        $req->execute();
+
+        return $req->fetchAll();
+    }
+
+    public function findAllReservations($driverId) {
+        $req = $this->getDb()->prepare('SELECT reservation.start_date, reservation.end_date, car.brand, car.model, category.car_doors, category.car_boot,category.seats 
+        FROM reservation 
+        JOIN car ON reservation.car_id = car.car_id
+        JOIN category ON car.category_id = category.category_id
+        WHERE reservation.driver_id = :driver_id');
+
+        $req->execute(['driver_id' => $driverId]);
+
+        return $req->fetchAll();
+    }
+
+    public function makeReservation($startDate, $endDate, $driverId, $carId) {
+        $query = 'INSERT INTO reservation (start_date, end_date, driver_id, car_id) VALUES (:start_date, :end_date, :driver_id, :car_id)';
+
+        $req = $this->getDb()->prepare($query);
+
+        $req->execute([
+            'start_date' => $startDate,
+            'end_date' => $endDate,
+            'driver_id' => $driverId,
+            'car_id' => $carId,
+        ]);
+    }
+
     public function createDriver($driverFirstName, $driverLastName, $driversLicense, $driverAge, $driverEmail, $driverPassword) {
         $query = 'INSERT INTO driver (first_name, last_name, drivers_license, age, email, password) VALUES (:first_name, :last_name, :drivers_license, :age, :email, :password)';
 
@@ -67,10 +100,11 @@ class DriverRepository extends Database {
     }
 
     public function deleteDriver($driver) {
-        $query = 'DELETE FROM driver WHERE driver_id = :id';
+        $query = 'DELETE FROM reservation WHERE driver_id = :id;
+        DELETE FROM driver WHERE driver_id = :id;';
 
         $req = $this->getDb()->prepare($query);
 
-        $req->execute(['id' => $driver->getDriverId()]);
+        $req->execute(['id' => $driver]);
     }
 }
